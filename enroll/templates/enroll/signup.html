@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Registration</title>
+ <style>
+  .success{
+   color:red;
+  }
+  .tag3 {
+    padding-right: 10px; 
+  }
+  .tag4 {
+    padding-left: 50px;
+  }
+  form {
+    text-align: center;
+    background-color: RGB(191, 208, 252);
+    padding: 100px;
+    text-align: right;
+    margin: auto;
+    display: table;
+    
+  }
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+  } 
+ </style>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center alert alert-danger">Signup Page </h2>
+
+<form action="" method="post" novalidate>
+ {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+ {% for fm in form %}
+  {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+ {% endfor %}
+ <input class = 'tag3' type="submit" value="Submit">  <a class = 'tag4' href="{% url 'login' %}">Login</a>
+</form>
+{% if messages %}
+ {% for message in messages %}
+  <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
+ {% endfor %}
+ {% endif %}
+ 
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

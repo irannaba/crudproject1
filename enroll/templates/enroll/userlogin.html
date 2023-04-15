@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Login</title>
+ <style>
+ .er{
+  color:red;
+ }
+ .tag1 {
+  padding-right: 10px; 
+}
+.tag2 {
+  padding-left: 50px;
+}
+ form { 
+  margin: 0 auto; 
+  width:250px;
+  background-color: RGB(191, 208, 252);
+  padding: 100px;
+  text-align: left;
+  margin: auto;
+  display: table;
+  }​​
+ </style>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+   <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6"> 
+  <h2 class="text-center alert alert-danger">Well Come to Login Page </h2>
+ <form action="" method="post" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+  {% for fm in form %}
+   {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+  {% endfor %}
+  <input class = 'tag1' type="submit" value="Login">  <a class = 'tag2' href="{% url 'signup' %}">Signup</a>
+ </form>
+</div>
+</div>
+</div> 
+</body>
+</html>

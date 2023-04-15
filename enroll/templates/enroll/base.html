@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Base page</title>
+ <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+ <style>
+   .top-right {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      line-height:15px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+ <div class="container mt-5">
+  <h2 class="text-center alert alert-danger">Task Details   <a class="top-right" href="{% url 'logout' %}">Logout</a></h2>
+  {% block content %} {% endblock content %}
+ </div>
+ <script src="{% static 'enroll/js/jquery.js' %}"></script>
+ <script src="{% static 'enroll/js/popper.js' %}"></script>
+ <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+</body>
+</html>
