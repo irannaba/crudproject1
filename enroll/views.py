@@ -13,9 +13,10 @@ def add_show(request):
   fm = StudentRegistration(request.POST)
   if fm.is_valid():
    nm = fm.cleaned_data['name']
-   em = fm.cleaned_data['email']
+  #  em = fm.cleaned_data['email']
+   tk= fm.cleaned_data['task']
    pw = fm.cleaned_data['password']
-   reg = Usertable(name=nm, email=em, password=pw)
+   reg = Usertable(name=nm, task=tk, password=pw)
    reg.save()
    fm = StudentRegistration()
  else:
@@ -29,7 +30,8 @@ def update_data(request, id):
   pi = Usertable.objects.get(pk=id)
   fm = StudentRegistration(request.POST, instance=pi)
   if fm.is_valid():
-   fm.save()
+    fm.save()
+    return HttpResponseRedirect('/addandshow/')
  else:
   pi = Usertable.objects.get(pk=id)
   fm = StudentRegistration(instance=pi)

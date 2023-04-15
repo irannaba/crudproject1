@@ -14,11 +14,16 @@
       line-height:15px;
       text-align: right;
     }
+    body {
+      background-image: url('/static/enroll/images/home.PNG');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   </style>
 </head>
 <body>
  <div class="container mt-5">
-  <h2 class="text-center alert alert-danger">Task Details   <a class="top-right" href="{% url 'logout' %}">Logout</a></h2>
+  <h2 class="text-center alert alert-danger">Task Details   <a class="top-right" href="{% url 'login' %}">Logout</a></h2>
   {% block content %} {% endblock content %}
  </div>
  <script src="{% static 'enroll/js/jquery.js' %}"></script>
