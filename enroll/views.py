@@ -75,7 +75,7 @@ def user_login(request):
       fm = AuthenticationForm()
     return render(request, 'enroll/userlogin.html', {'form':fm})
   else:
-    return HttpResponseRedirect('/login/')
+    return HttpResponseRedirect('/')
 
 # Profile
 def user_profile(request):
