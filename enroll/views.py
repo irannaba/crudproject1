@@ -15,8 +15,8 @@ def add_show(request):
    nm = fm.cleaned_data['name']
   #  em = fm.cleaned_data['email']
    tk= fm.cleaned_data['task']
-   pw = fm.cleaned_data['password']
-   reg = Usertable(name=nm, task=tk, password=pw)
+  #  pw = fm.cleaned_data['password']
+   reg = Usertable(name=nm, task=tk)
    reg.save()
    fm = StudentRegistration()
  else:
